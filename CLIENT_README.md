@@ -1,8 +1,8 @@
-# Trading Strategy Framework for Move Tickers Students
+# Trading Strategy Framework for Move Tickers
 
 ## Overview
 
-This repository provides a standardized framework for Move Tickers students to test and evaluate trading strategies. It implements a modular backtesting environment using the `backtesting.py` package, allowing students to focus on strategy development rather than testing infrastructure.
+This repository provides a standardized framework for Move Tickers to test and evaluate trading strategies. It implements a modular backtesting environment using the `backtesting.py` package, allowing students to focus on strategy development rather than testing infrastructure.
 
 ## Purpose
 
@@ -115,7 +115,7 @@ class MyCustomStrategy(Strategy):
 
 We believe this framework will significantly enhance the quality of student projects at Move Tickers while providing valuable experience with industry-standard tools and methodologies. By standardizing on the `backtesting.py` package, we ensure that strategies can be easily compared, validated, and integrated into our platform.
 
-For any questions or support, please contact the Move Tickers academic team.
+For any questions or support, please contact the Move Tickers team.
 
 ---
 
