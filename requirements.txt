@@ -1,0 +1,8 @@
+pandas>=2.0.3,<2.2.0
+numpy>=1.24.4,<2.0.0
+requests>=2.31.0,<3.0.0
+backtesting>=0.3.3,<0.4.0
+matplotlib>=3.7.2,<4.0.0
+python-dateutil>=2.8.2,<3.0.0
+bokeh==2.4.3
+seaborn>=0.12.0,<0.13.0 
