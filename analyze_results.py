@@ -83,7 +83,7 @@ def analyze_trades(results_df):
     """Analyze trading statistics and print summary"""
     if results_df is None or results_df.empty:
         print("No results to analyze")
-        return
+        return None
     
     # Calculate average metrics
     avg_return = results_df['Return [%]'].mean()
@@ -103,13 +103,27 @@ def analyze_trades(results_df):
     print(f"  - Average Win Rate: {avg_win_rate:.2f}%")
     print(f"  - Average Number of Trades: {avg_trades:.0f}")
     
-    return {
+    # Compile stats into a dictionary
+    stats_summary = {
         'avg_return': avg_return,
         'avg_sharpe': avg_sharpe,
         'avg_drawdown': avg_drawdown,
         'avg_win_rate': avg_win_rate,
-        'avg_trades': avg_trades
+        'avg_trades': avg_trades,
+        'ticker': config.TICKER,
+        'investment_amount': config.INVESTMENT_AMOUNT,
+        'lookback_years': config.LOOKBACK_YEARS,
+        'num_backtests': len(results_df),
+        'analysis_date': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
+    
+    # Save the summary stats to a CSV file
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    summary_file = os.path.join(config.RESULTS_PATH, f"strategy_summary_{timestamp}.csv")
+    pd.DataFrame([stats_summary]).to_csv(summary_file, index=False)
+    print(f"Strategy summary saved to {summary_file}")
+    
+    return stats_summary
 
 
 def main():
@@ -125,8 +139,8 @@ def main():
     results = load_results()
     
     if results is not None and not results.empty:
-        # Analyze trades
-        stats = analyze_trades(results)
+        # Analyze trades and save summary to file
+        analyze_trades(results)
         
         # Plot performance metrics
         plot_performance_metrics(results)
