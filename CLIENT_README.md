@@ -4,6 +4,8 @@
 
 This repository provides a standardized framework for Move Tickers to test and evaluate trading strategies. It implements a modular backtesting environment using the `backtesting.py` package, allowing students to focus on strategy development rather than testing infrastructure.
 
+**Note:** The current implementation is not complete. For example, we have not yet filled in the missing data. This repository only presents the framework.
+
 ## Purpose
 
 At Move Tickers, we encourage students to explore diverse projects in the trading space, including:
